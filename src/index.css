@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #02040a;
+  color: #f1f5f9;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom Cosmic Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #02040a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+/* Cosmic Animations & Star Effects */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes shootingStar {
+  0% {
+    transform: translateX(0) translateY(0) rotate(-45deg);
+    opacity: 1;
+    width: 0px;
+  }
+  30% {
+    width: 120px;
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-600deg) translateY(600px) rotate(-45deg);
+    opacity: 0;
+    width: 0px;
+  }
+}
+
+@keyframes floatCosmic {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes cosmicPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 35px -5px rgba(37, 99, 235, 0.5), inset 0 0 15px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 55px 10px rgba(59, 130, 246, 0.7), inset 0 0 25px rgba(96, 165, 250, 0.5);
+  }
+}
+
+.star-particle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #ffffff;
+  animation: twinkle var(--duration, 3s) infinite ease-in-out var(--delay, 0s);
+  pointer-events: none;
+}
+
+.cosmic-blue-card {
+  animation: cosmicPulseGlow 5s infinite ease-in-out;
+}
+
+.cosmic-glass {
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.cosmic-glass-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cosmic-glass-hover:hover {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(96, 165, 250, 0.4);
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.25);
+}
+
+.font-space {
+  font-family: 'Space Grotesk', sans-serif;
+}
